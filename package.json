@@ -1,17 +1,17 @@
 {
-  "name": "webservice",
+  "name": "cs262-webservice",
   "version": "1.0.0",
-  "description": "cs262 dataservice",
+  "description": "CS 262 Webservice",
   "main": "monopolyService.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kvlinden-courses/cs262.git"
-  },
   "author": "kvlinden",
   "license": "ISC",
+  "engines": {
+    "node": "12.x"
+  },
+  "main": "monopolyService.js",
+  "scripts": {
+    "start": "node monopolyService.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "pg-promise": "^10.5.7"

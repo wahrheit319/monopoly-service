@@ -1,6 +1,7 @@
+# https://fathomless-scrubland-66672.herokuapp.com/
 
 # curl http://localhost:3000/players
-GET http://localhost:3000/players
+GET http://localhost:3000//players
 
 ###
 
@@ -33,7 +34,7 @@ Content-Type: application/json
 ###
 
 # curl http://localhost:3000/players/4
-DELETE http://localhost:3000/players/4
+DELETE http://localhost:3000/players/9
 
 ###
 

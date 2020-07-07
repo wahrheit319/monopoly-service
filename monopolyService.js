@@ -21,7 +21,7 @@ const db = pgp({
 
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const router = express.Router();
 router.use(express.json());
 
@@ -34,7 +34,7 @@ router.delete('/players/:id', deletePlayer);
 
 app.use(router);
 app.use(errorHandler);
-app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // Implement the CRUD operations.
 
@@ -68,7 +68,7 @@ function readPlayers(req, res, next) {
 }
 
 function readPlayer(req, res, next) {
-    db.oneOrNone(`SELECT * FROM Player WHERE id=$(req.params.id)`)
+    db.oneOrNone(`SELECT * FROM Player WHERE id=${req.params.id}`)
         .then(data => {
             returnDataOr404(res, data);
         })
