@@ -34,7 +34,7 @@ router.delete('/players/:id', deletePlayer);
 
 app.use(router);
 app.use(errorHandler);
-app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // Implement the CRUD operations.
 
