@@ -2,6 +2,8 @@
  * This module implements a REST-inspired webservice for the Monopoly DB.
  * The database is hosted on ElephantSQL.
  *
+ * Currently, the service supports the player table only.
+ *
  * @author: kvlinden
  * @date: Summer, 2020
  */
@@ -25,7 +27,7 @@ const port = process.env.PORT || 3000;
 const router = express.Router();
 router.use(express.json());
 
-router.get("/", getHelloMessage);
+router.get("/", readHelloMessage);
 router.get("/players", readPlayers);
 router.get("/players/:id", readPlayer);
 router.put("/players/:id", updatePlayer);
@@ -53,7 +55,7 @@ function returnDataOr404(res, data) {
     }
 }
 
-function getHelloMessage(req, res) {
+function readHelloMessage(req, res) {
     res.send('Hello, CS 262 Monopoly service!');
 }
 

@@ -1,4 +1,4 @@
-# https://fathomless-scrubland-66672.herokuapp.com/
+# https://cs262-monopoly-service.herokuapp.com/
 
 # curl http://localhost:3000/players
 GET http://localhost:3000//players
