@@ -54,7 +54,7 @@ function returnDataOr404(res, data) {
 }
 
 function getHelloMessage(req, res) {
-    res.send('Hello, MonopolyDB service!');
+    res.send('Hello, CS 262 Monopoly service!');
 }
 
 function readPlayers(req, res, next) {
