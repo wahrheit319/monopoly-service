@@ -8,4 +8,3 @@ the standard Heroku with Node.js tutorial.
 The database is relational and hosted on elephantsql.com. 
 
 We implement this as a separate repo to simplify Heroku integration.
-
