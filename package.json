@@ -10,7 +10,8 @@
   },
   "main": "monopolyService.js",
   "scripts": {
-    "start": "node monopolyService.js"
+    "start": "node monopolyService.js",
+    "start-direct": "node monopolyDirect.js"
   },
   "dependencies": {
     "express": "^4.17.1",
