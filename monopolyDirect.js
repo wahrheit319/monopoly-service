@@ -12,8 +12,8 @@ const db = pgp({
     host: "salt.db.elephantsql.com",
     port: 5432,
     database: "kfwlavxr",
-    user: "kfwlavxr",
-    password: "B4YX-hcBCVykNE2CbouRoqzM5we0kMyM"
+    user: process.env.USER,
+    password: process.env.PASSWORD
 });
 
 // Send the SQL command directly to Postgres.
