@@ -2,6 +2,11 @@
  * This module implements direct, Android-to-Postgres access to the Monopoly DB.
  * The database is hosted on ElephantSQL.
  *
+ * Because the username and password are stored as Heroku config vars, store
+ * those values in .env and the run this module using the Procfile script:
+ *
+ *      heroku local direct
+ *
  * @author: kvlinden
  * @date: Summer, 2020
  */
