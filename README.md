@@ -1,7 +1,8 @@
 # CS 262 Monopoly Webservice
 
-This repo implements a sample data-based webservice for CS 262 built based on 
-the standard Heroku with Node.js tutorial.
+This is the data service application for the [CS 262 sample Monopoly project](https://github.com/calvin-cs262-organization/monopoly-project).
+
+It is based on the standard Heroku with Node.js tutorial.
 
 <https://devcenter.heroku.com/articles/getting-started-with-nodejs>  
 
