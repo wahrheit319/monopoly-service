@@ -10,4 +10,6 @@ The database is relational with the schema specified in the `sql/` sub-directory
  and is hosted on [ElephantSQL](https://www.elephantsql.com/). The database user
 and password are stored as Heroku configuration variables.
 
-We implement this as a separate repo to simplify Heroku integration.
+We implement this as a separate repo to simplify Heroku integration. Name your
+GitHub repo <code>cs262-service</code> and your Heroku application 
+<code>cs262-USERID-service</code>.
