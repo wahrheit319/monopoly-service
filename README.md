@@ -15,7 +15,8 @@ and password are stored as Heroku configuration variables.
 
 We implement this sample as a separate repo to simplify Heroku integration, but 
 for lab 9, you can simply submit your code under the standard `cs262/lab09` directory. 
-For the team project, configure your Heroku app to auto-deploy the code from your 
+For the team project, configure your Heroku app to auto-deploy the code from the
+master/main branch of your
 service repo; do this by following the instructions under the &ldquo;Deploy&rdquo; 
 tab in your application in the Heroku dashboard.
  
