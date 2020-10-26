@@ -11,5 +11,5 @@ The database is relational with the schema specified in the `sql/` sub-directory
 and password are stored as Heroku configuration variables.
 
 We implement this as a separate repo to simplify Heroku integration. Name your
-GitHub repo <code>cs262-service</code> and your Heroku application 
-<code>cs262-USERID-service</code>.
+GitHub repo <code>cs262-service</code> and include the name of your Heroku application
+in the README.md file for this service.
