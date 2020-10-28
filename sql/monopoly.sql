@@ -18,7 +18,7 @@ CREATE TABLE Game (
 
 CREATE TABLE Player (
 	ID integer PRIMARY KEY, 
-	emailAddress varchar(50) NOT NULL,
+	email varchar(50) NOT NULL,
 	name varchar(50)
 	);
 
@@ -38,7 +38,7 @@ INSERT INTO Game VALUES (1, '2006-06-27 08:00:00');
 INSERT INTO Game VALUES (2, '2006-06-28 13:20:00');
 INSERT INTO Game VALUES (3, '2006-06-29 18:41:00');
 
-INSERT INTO Player(ID, emailAddress) VALUES (1, 'me@calvin.edu');
+INSERT INTO Player(ID, email) VALUES (1, 'me@calvin.edu');
 INSERT INTO Player VALUES (2, 'king@gmail.edu', 'The King');
 INSERT INTO Player VALUES (3, 'dog@gmail.edu', 'Dogbreath');
 

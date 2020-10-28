@@ -80,7 +80,7 @@ function readPlayer(req, res, next) {
 }
 
 function updatePlayer(req, res, next) {
-    db.oneOrNone(`UPDATE Player SET emailAddress=$(emailAddress), name=$(name) WHERE id=${req.params.id} RETURNING id`, req.body)
+    db.oneOrNone(`UPDATE Player SET email=$(email), name=$(name) WHERE id=${req.params.id} RETURNING id`, req.body)
         .then(data => {
             returnDataOr404(res, data);
         })
@@ -90,7 +90,7 @@ function updatePlayer(req, res, next) {
 }
 
 function createPlayer(req, res, next) {
-    db.one(`INSERT INTO Player(emailAddress, name) VALUES ($(emailAddress), $(name)) RETURNING id`, req.body)
+    db.one(`INSERT INTO Player(email, name) VALUES ($(email), $(name)) RETURNING id`, req.body)
         .then(data => {
             res.send(data);
         })
