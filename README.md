@@ -11,7 +11,7 @@ It is based on the standard Heroku with Node.js tutorial.
 
 The database is relational with the schema specified in the `sql/` sub-directory,
  and is hosted on [ElephantSQL](https://www.elephantsql.com/). The database user
-and password are stored as Heroku configuration variables.
+and password are stored as Heroku configuration variables rather than in this (public) repo.
 
 We implement this sample as a separate repo to simplify Heroku integration, but 
 for lab 9, you can simply submit your code under the standard `cs262/lab09` directory. 
