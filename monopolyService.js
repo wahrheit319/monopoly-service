@@ -12,11 +12,11 @@
 
 const pgp = require('pg-promise')();
 const db = pgp({
-    host: process.env.SERVER,
-    port: process.env.PORT,
-    database: process.env.USER,
-    user: process.env.USER,
-    password: process.env.PASSWORD
+    host: process.env.DB_SERVER,
+    port: process.env.DB_PORT,
+    database: process.env.DB_USER,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD
 });
 
 // Configure the server and its routes.
