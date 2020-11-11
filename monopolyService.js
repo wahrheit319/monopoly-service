@@ -4,20 +4,16 @@
  *
  * Currently, the service supports the player table only.
  *
+ * To guard against SQL injection attacks, this code uses pg-promise's built-in
+ * variable escaping. This prevents a client from issuing this URL:
+ *     https://cs262-monopoly-service.herokuapp.com/players/1%3BDELETE%20FROM%20PlayerGame%3BDELETE%20FROM%20Player
+ * which would delete records in the PlayerGame and then the Player tables.
+ *
  * @author: kvlinden
  * @date: Summer, 2020
  */
 
 // Set up the database connection.
-
-/**
- * SQL Injection attacks
- * If you know the schema (table names, primary/foreign keys) you can delete the
- * tables, e.g., this command deletes the PlayerGame and Player tables.
- *    https://cs262-monopoly-service.herokuapp.com/players/1%3BDELETE%20FROM%20PlayerGame%3BDELETE%20FROM%20Player
- *
- */
-
 const pgp = require('pg-promise')();
 const db = pgp({
     host: process.env.DB_SERVER,
@@ -88,8 +84,7 @@ function readPlayer(req, res, next) {
 }
 
 function updatePlayer(req, res, next) {
-    db.oneOrNone('UPDATE Player SET email=${req.body.email}, name=${req.body.name} WHERE id=${req.body.id} RETURNING id',
-        req.body)
+    db.oneOrNone('UPDATE Player SET email=${email}, name=${name} WHERE id=${id} RETURNING id', req.body)
         .then(data => {
             returnDataOr404(res, data);
         })
@@ -99,7 +94,7 @@ function updatePlayer(req, res, next) {
 }
 
 function createPlayer(req, res, next) {
-    db.one('INSERT INTO Player(email, name) VALUES $1 RETURNING id', req.body.id)
+    db.one('INSERT INTO Player(email, name) VALUES ${id} RETURNING id', req.body)
         .then(data => {
             res.send(data);
         })
@@ -109,7 +104,7 @@ function createPlayer(req, res, next) {
 }
 
 function deletePlayer(req, res, next) {
-    db.oneOrNone('DELETE FROM Player WHERE id=%1 RETURNING id', req.params.id)
+    db.oneOrNone('DELETE FROM Player WHERE id=${id} RETURNING id', req.params)
         .then(data => {
             returnDataOr404(res, data);
         })
