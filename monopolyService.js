@@ -75,7 +75,7 @@ function readPlayers(req, res, next) {
 }
 
 function readPlayer(req, res, next) {
-    db.oneOrNone('SELECT * FROM Player WHERE id=${id}', req.params)
+    db.oneOrNone('SELECT * FROM Player WHERE id=${req.params.id}')
         .then(data => {
             returnDataOr404(res, data);
         })
@@ -85,7 +85,7 @@ function readPlayer(req, res, next) {
 }
 
 function updatePlayer(req, res, next) {
-    db.oneOrNone('UPDATE Player SET email=${email}, name=${name} WHERE id=${id} RETURNING id', req.body)
+    db.oneOrNone('UPDATE Player SET email=${email}, name=${name} WHERE id=${req.params.id} RETURNING id', req.body)
         .then(data => {
             returnDataOr404(res, data);
         })
@@ -105,7 +105,7 @@ function createPlayer(req, res, next) {
 }
 
 function deletePlayer(req, res, next) {
-    db.oneOrNone('DELETE FROM Player WHERE id=${id} RETURNING id', req.params)
+    db.oneOrNone('DELETE FROM Player WHERE id=${req.params.id} RETURNING id')
         .then(data => {
             returnDataOr404(res, data);
         })
