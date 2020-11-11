@@ -84,16 +84,16 @@ function readPlayer(req, res, next) {
         });
 }
 
-function updatePlayer(req, res, next) {
-    db.oneOrNone('UPDATE Player SET email=${req.body.email}, name=${req.body.name} WHERE id=${req.params.id} RETURNING id',
-        {req.body, req.params})
-        .then(data => {
-            returnDataOr404(res, data);
-        })
-        .catch(err => {
-            next(err);
-        });
-}
+// function updatePlayer(req, res, next) {
+//     db.oneOrNone('UPDATE Player SET email=${req.body.email}, name=${req.body.name} WHERE id=${req.params.id} RETURNING id',
+//         {req.body, req.params})
+//         .then(data => {
+//             returnDataOr404(res, data);
+//         })
+//         .catch(err => {
+//             next(err);
+//         });
+// }
 
 function createPlayer(req, res, next) {
     db.one('INSERT INTO Player(email, name) VALUES (${email}, ${name}) RETURNING id', req.body)
