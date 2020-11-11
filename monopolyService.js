@@ -8,6 +8,7 @@
  * variable escaping. This prevents a client from issuing this URL:
  *     https://cs262-monopoly-service.herokuapp.com/players/1%3BDELETE%20FROM%20PlayerGame%3BDELETE%20FROM%20Player
  * which would delete records in the PlayerGame and then the Player tables.
+ * In particular, we don't use JS template strings, which don't filter properly.
  *
  * @author: kvlinden
  * @date: Summer, 2020
@@ -94,7 +95,7 @@ function updatePlayer(req, res, next) {
 }
 
 function createPlayer(req, res, next) {
-    db.one('INSERT INTO Player(email, name) VALUES ${id} RETURNING id', req.body)
+    db.one('INSERT INTO Player(email, name) VALUES (${email}, ${name}) RETURNING id', req.body)
         .then(data => {
             res.send(data);
         })
