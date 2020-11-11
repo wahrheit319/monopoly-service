@@ -8,7 +8,8 @@
  * variable escaping. This prevents a client from issuing this URL:
  *     https://cs262-monopoly-service.herokuapp.com/players/1%3BDELETE%20FROM%20PlayerGame%3BDELETE%20FROM%20Player
  * which would delete records in the PlayerGame and then the Player tables.
- * In particular, we don't use JS template strings, which don't filter properly.
+ * In particular, we don't use JS template strings because it doesn't filter
+ * client-supplied values properly.
  *
  * @author: kvlinden
  * @date: Summer, 2020
