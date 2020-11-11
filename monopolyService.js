@@ -10,7 +10,16 @@
 
 // Set up the database connection.
 
+/**
+ * SQL Injection attacks
+ * If you know the schema (table names, primary/foreign keys) you can delete the
+ * tables, e.g., this command deletes the PlayerGame and Player tables.
+ *    https://cs262-monopoly-service.herokuapp.com/players/1%3BDELETE%20FROM%20PlayerGame%3BDELETE%20FROM%20Player
+ *
+ */
+
 const pgp = require('pg-promise')();
+const format = require('pg-format');
 const db = pgp({
     host: process.env.DB_SERVER,
     port: process.env.DB_PORT,
@@ -70,7 +79,7 @@ function readPlayers(req, res, next) {
 }
 
 function readPlayer(req, res, next) {
-    db.oneOrNone(`SELECT * FROM Player WHERE id=${req.params.id}`)
+    db.oneOrNone(format('SELECT * FROM Player WHERE id=%L', req.params.id))
         .then(data => {
             returnDataOr404(res, data);
         })
