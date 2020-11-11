@@ -19,7 +19,6 @@
  */
 
 const pgp = require('pg-promise')();
-const pgf = require('pg-format');
 const db = pgp({
     host: process.env.DB_SERVER,
     port: process.env.DB_PORT,
@@ -79,7 +78,7 @@ function readPlayers(req, res, next) {
 }
 
 function readPlayer(req, res, next) {
-    db.oneOrNone('SELECT * FROM Player WHERE id=$1', req.params.id)
+    db.oneOrNone('SELECT * FROM Player WHERE id=${id}', req.params)
         .then(data => {
             returnDataOr404(res, data);
         })
@@ -89,7 +88,8 @@ function readPlayer(req, res, next) {
 }
 
 function updatePlayer(req, res, next) {
-    db.oneOrNone(pgf('UPDATE Player SET email=%L, name=%L WHERE id=%L RETURNING id', req.body.email, req.body.name, req.body.id))
+    db.oneOrNone('UPDATE Player SET email=${req.body.email}, name=${req.body.name} WHERE id=${req.body.id} RETURNING id',
+        req.body)
         .then(data => {
             returnDataOr404(res, data);
         })
@@ -99,7 +99,7 @@ function updatePlayer(req, res, next) {
 }
 
 function createPlayer(req, res, next) {
-    db.one(pgf('INSERT INTO Player(email, name) VALUES %L RETURNING id', [req.body]))
+    db.one('INSERT INTO Player(email, name) VALUES $1 RETURNING id', req.body.id)
         .then(data => {
             res.send(data);
         })
@@ -109,7 +109,7 @@ function createPlayer(req, res, next) {
 }
 
 function deletePlayer(req, res, next) {
-    db.oneOrNone(pgf('DELETE FROM Player WHERE id=%L RETURNING id', req.params.id))
+    db.oneOrNone('DELETE FROM Player WHERE id=%1 RETURNING id', req.params.id)
         .then(data => {
             returnDataOr404(res, data);
         })
