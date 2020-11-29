@@ -2,8 +2,10 @@
  * This module implements direct, Android-to-Postgres access to the Monopoly DB.
  * The database is hosted on ElephantSQL.
  *
- * Because the username and password are stored as Heroku config vars, store
- * those values in .env and the run this module using the Procfile script:
+ * Because the PGP connection variables are stored as Heroku config vars, store
+ * those values in .env (stored locally and listed in .gitignore so that they're
+ * not pushed to GitHub, e.g., one line would be DB_PORT=5432) and the run this
+ * module using the Procfile script:
  *
  *      heroku local direct
  *
@@ -14,11 +16,11 @@
 // Set up the database connection.
 const pgp = require('pg-promise')();
 const db = pgp({
-    host: "salt.db.elephantsql.com",
-    port: 5432,
-    database: process.env.USER,
-    user: process.env.USER,
-    password: process.env.PASSWORD
+    host: process.env.DB_SERVER,
+    port: process.env.DB_PORT,
+    database: process.env.DB_USER,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD
 });
 
 // Send the SQL command directly to Postgres.
