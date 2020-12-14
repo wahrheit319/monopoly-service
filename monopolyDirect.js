@@ -20,7 +20,8 @@ const db = pgp({
     port: process.env.DB_PORT,
     database: process.env.DB_USER,
     user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD
+    password: process.env.DB_PASSWORD,
+    ssl: true,
 });
 
 // Send the SQL command directly to Postgres.
