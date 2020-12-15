@@ -11,6 +11,9 @@
  * In particular, we don't use JS template strings because it doesn't filter
  * client-supplied values properly.
  *
+ * TODO: Consider using Prepared Statements.
+ *      https://vitaly-t.github.io/pg-promise/PreparedStatement.html
+ *
  * @author: kvlinden
  * @date: Summer, 2020
  */
