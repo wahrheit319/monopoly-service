@@ -65,11 +65,11 @@ function returnDataOr404(res, data) {
 }
 
 function readHelloMessage(req, res) {
-    res.send('Hello, CS 262 Monopoly service!!');
+    res.send('Hello, CS 262 Monopoly service!');
 }
 
  function readPlayers(req, res, next) {
-    db.many("SELECT * FROM Player")
+    db.many("SELECT * FROM Playerr")
         .then(data => {
             res.send(data);
         })
