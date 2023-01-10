@@ -10,10 +10,14 @@
  * which would delete records in the PlayerGame and then the Player tables.
  * In particular, we don't use JS template strings because it doesn't filter
  * client-supplied values properly.
- *
  * TODO: Consider using Prepared Statements.
  *      https://vitaly-t.github.io/pg-promise/PreparedStatement.html
- *
+ * 
+ * This service assumes that the database connection strings and the server mode are 
+ * set in environment variables. See the DB_* variables used by pg-promise. And
+ * setting NODE_ENV to production will cause ExpressJS to serve up uninformative 
+ * server error responses for all errors.
+  *
  * @author: kvlinden
  * @date: Summer, 2020
  */
@@ -44,17 +48,9 @@ router.post('/players', createPlayer);
 router.delete('/players/:id', deletePlayer);
 
 app.use(router);
-app.use(errorHandler);
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // Implement the CRUD operations.
-
-function errorHandler(err, req, res) {
-    if (app.get('env') === "development") {
-        console.log(err);
-    }
-    res.sendStatus(err.status || 500);
-}
 
 function returnDataOr404(res, data) {
     if (data == null) {
@@ -69,7 +65,7 @@ function readHelloMessage(req, res) {
 }
 
  function readPlayers(req, res, next) {
-    db.many("SELECT * FROM Player")
+    db.many("SELECT * FROM Playerr")
         .then(data => {
             res.send(data);
         })
