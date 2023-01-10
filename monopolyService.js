@@ -69,7 +69,7 @@ function readHelloMessage(req, res) {
 }
 
  function readPlayers(req, res, next) {
-    db.many("SELECT * FROM Playerr")
+    db.many("SELECT * FROM Player")
         .then(data => {
             res.send(data);
         })
