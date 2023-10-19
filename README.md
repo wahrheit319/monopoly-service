@@ -6,6 +6,11 @@ This is the data service application for the
           
 - <https://cs262-webservice.azurewebsites.net/>
 
+It has the following data route URLs:
+- `/`: a hello message
+- `/players`: a list of players
+- `/players/:id`: a single player with the given ID
+
 It is based on the standard Azure App Service tutorial for Node.js.
 
 - <https://learn.microsoft.com/en-us/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-cli>  
@@ -18,6 +23,6 @@ exposed in this (public) repo.
 We implement this sample service as a separate repo to simplify Azure integration;
 it&rsquo;s easier to auto-deploy a separate repo to Azure. For your team project&rsquo;s 
 data service, configure your Azure App Service to auto-deploy from the master/main branch 
-of your service repo. See the settingsd for this in the &ldquo;Deployment Center&rdquo; 
+of your service repo. See the settings for this in the &ldquo;Deployment Center&rdquo; 
 on your Azure service dashboard.
  
