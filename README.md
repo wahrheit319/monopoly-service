@@ -7,9 +7,9 @@ This is the data service application for the
 - <https://cs262-webservice.azurewebsites.net/>
 
 It has the following data route URLs:
-- `/`: a hello message
-- `/players`: a list of players
-- `/players/:id`: a single player with the given ID
+- `/` a hello message
+- `/players` a list of players
+- `/players/:id` a single player with the given ID
 
 It is based on the standard Azure App Service tutorial for Node.js.
 
