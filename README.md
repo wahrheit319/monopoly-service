@@ -6,7 +6,7 @@ This is the data service application for the
           
 - <https://cs262-webservice.azurewebsites.net/>
 
-It has the following data route URLs:
+It has the following read data route URLs:
 - `/` a hello message
 - `/players` a list of players
 - `/players/:id` a single player with the given ID
