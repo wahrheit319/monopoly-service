@@ -10,10 +10,14 @@
   },
   "scripts": {
     "start": "node monopolyService.js",
-    "start-direct": "node monopolyDirect.js"
+    "start-direct": "node monopolyDirect.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "express": "^4.17.1",
     "pg-promise": "^10.12.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0"
   }
 }
