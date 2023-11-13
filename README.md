@@ -4,7 +4,9 @@ This is the data service application for the
 [CS 262 sample Monopoly project](https://github.com/calvin-cs262-organization/monopoly-project),
  which is deployed here:
           
-- <https://cs262-webservice.azurewebsites.net/>
+- <https://yl77hw03.azurewebsites.net>
+- <https://yl77hw03.azurewebsites.net/players>
+- <https://yl77hw03.azurewebsites.net/players/1>
 
 It has the following read data route URLs:
 - `/` a hello message
