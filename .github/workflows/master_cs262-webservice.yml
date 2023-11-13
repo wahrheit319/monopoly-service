@@ -50,7 +50,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'cs262-webservice'
+          app-name: 'yl77hw03'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3206C5FC9FFF459DAF98B161E44BF9FD }}
           package: .
