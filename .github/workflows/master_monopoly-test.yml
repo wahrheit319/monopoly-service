@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'monopoly-test'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ABA488773E84426E8852309D17305FBE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3206C5FC9FFF459DAF98B161E44BF9FD }}
           package: .
