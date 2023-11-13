@@ -119,3 +119,27 @@ function deletePlayer(req, res, next) {
       next(err);
     });
 }
+
+function readJoinedData(req, res, next) {
+  db.many(`
+    SELECT
+        Game.ID AS GameID,
+        Game.time AS GameTime,
+        Player.ID AS PlayerID,
+        Player.email AS PlayerEmail,
+        Player.name AS PlayerName,
+        PlayerGame.score AS PlayerScore
+    FROM
+        Game
+    JOIN
+        PlayerGame ON Game.ID = PlayerGame.gameID
+    JOIN
+        Player ON PlayerGame.playerID = Player.ID;
+  `)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      next(err);
+    });
+}
